@@ -30,9 +30,8 @@ A normalized relational database schema for a company managing projects, employe
 | schema/       | create_tables.sql        | All `CREATE TABLE` statements           |
 |               | er_diagram.jpg           | Schema image (ER Diagram)               |
 | data/         | insert_data.sql          | Mock data for employees, projects, etc. |
-| queries/      | select_queries.sql       | All SELECT queries from tasks           |
-|               | update_queries.sql       | UPDATEs like deadline shift, close task |
-|               | analytics_queries.sql    | Optional: averages, complex joins       |
+| queries/      | queries.sql              | All SELECT queries from tasks           |
+
 
 ---
 
@@ -45,11 +44,10 @@ A normalized relational database schema for a company managing projects, employe
 5. Project duration (create to close date)
 6. Employees with fewest open tasks
 7. Most overdue open tasks
-8. Extend deadlines by 5 days
-9. Count of tasks not started per project
-10. Auto-close projects where all tasks closed
-11. Employees with no open tasks
-12. Assign task to employee with fewest open ones
+8. Count of tasks not started per project
+9. Auto-close projects where all tasks closed
+10. Employees with no open tasks
+11. Assign task to employee with fewest open ones
 
 ---
 
@@ -70,6 +68,3 @@ A normalized relational database schema for a company managing projects, employe
 
 ---
 
-## 📝 License
-
-MIT
