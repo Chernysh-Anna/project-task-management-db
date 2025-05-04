@@ -1,6 +1,17 @@
 CREATE DATABASE Local;
 USE Local;
 
+-- Projects status 
+
+CREATE TABLE [dbo].[Project_Statuses](
+	[status_id] [int] NOT NULL,
+	[status_name] [varchar](20) NOT NULL,
+ CONSTRAINT [PK_Project_Statuses] PRIMARY KEY CLUSTERED 
+(
+	[status_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 
 --Employees table
 
@@ -34,17 +45,6 @@ REFERENCES [dbo].[Project_Statuses] ([status_id])
 GO
 
 ALTER TABLE [dbo].[Projects] CHECK CONSTRAINT [FK_Projects_Project_Statuses]
-GO
--- Projects status 
-
-CREATE TABLE [dbo].[Project_Statuses](
-	[status_id] [int] NOT NULL,
-	[status_name] [varchar](20) NOT NULL,
- CONSTRAINT [PK_Project_Statuses] PRIMARY KEY CLUSTERED 
-(
-	[status_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
 GO
 
 
@@ -91,6 +91,18 @@ GO
 ALTER TABLE [dbo].[Employee_Project_Roles] CHECK CONSTRAINT [FK_Employee_Project_Roles_Roles]
 GO
 
+--  Task_Statuses
+
+CREATE TABLE [dbo].[Task_Status](
+	[status_id] [int] NOT NULL,
+	[status_name] [varchar](20) NOT NULL,
+ CONSTRAINT [PK_Task_Status] PRIMARY KEY CLUSTERED 
+(
+	[status_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
 --  Task
 
 CREATE TABLE [dbo].[Tasks](
@@ -119,17 +131,7 @@ GO
 ALTER TABLE [dbo].[Tasks] CHECK CONSTRAINT [FK_Tasks_Projects]
 GO
 
---  Task_Statuses
 
-CREATE TABLE [dbo].[Task_Status](
-	[status_id] [int] NOT NULL,
-	[status_name] [varchar](20) NOT NULL,
- CONSTRAINT [PK_Task_Status] PRIMARY KEY CLUSTERED 
-(
-	[status_id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
 
 --Status_History
 CREATE TABLE [dbo].[Status_History](
